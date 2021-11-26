@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-// import { sortByDate } from './sort'
 
 export const todoSlice = createSlice({
   name: 'todo',
@@ -46,18 +45,6 @@ export const todoSlice = createSlice({
       state.todoList = action.payload
       state.idCounter = state.todoList.length
     },
-    // sortTodo: (state) => {
-    //   for (let i = 0; i < state.mockTodo.length; i++) {
-    //     if (state.mockTodo[i].status === 0) {
-    //       state.todoList.push(state.mockTodo[i])
-    //     } else {
-    //       state.listDone.push(state.mockTodo[i])
-    //     }
-    //   }
-    //   state.todoList = sortByDate({ array: state.todoList })
-    //   state.listDone = sortByDate({ array: state.listDone, desc: true })
-    //   state.idCounter = state.todoList.length + state.listDone.length
-    // }
   }
 })
 
@@ -67,7 +54,6 @@ export const fetchMockTodos = () => async dispatch => {
     url: 'https://virtserver.swaggerhub.com/hanabyan/todo/1.0.0/to-do-list'
   })
   dispatch(fetchMock(data))
-  // dispatch(sortTodo())
 }
 
 export const { addTodo, updateTodo, removeTodo, fetchMock, sortTodo } = todoSlice.actions
